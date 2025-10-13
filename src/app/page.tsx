@@ -1,8 +1,9 @@
 import * as FileInput from "@/components/form/FileInput";
+import { InputControl, InputPrefix, InputRoot } from "@/components/form/Input";
 import { Select, SelectItem } from "@/components/form/Select";
-import { InputControl, InputPrefix, InputRoot } from "@/components/Input";
+import { Textarea } from "@/components/form/Textarea";
 import { SettingsTabs } from "@/components/SettingsTabs/SettingsTabs";
-import { Mail } from "lucide-react";
+import { Bold, Italic, Link, List, ListOrdered, Mail } from "lucide-react";
 
 export default function Home() {
   return (
@@ -140,17 +141,61 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-[minmax(7.5rem,17.5rem)_minmax(25rem,1fr)_minmax(0,15rem)] gap-3 pb-5">
-            <label
-              htmlFor="email"
-              className="text-sm font-medium text-zinc-700"
-            >
+            <label htmlFor="bio" className="text-sm font-medium text-zinc-700">
               Bio
               <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 Write a short introduction.
               </span>
             </label>
 
-            <div></div>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-2">
+                <Select defaultValue="normal">
+                  <SelectItem value="normal">Normal text</SelectItem>
+                  <SelectItem value="md">Markdown</SelectItem>
+                </Select>
+
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+                  >
+                    <Bold className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+                  >
+                    <Italic className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+                  >
+                    <Link className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+                  >
+                    <List className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+                  >
+                    <ListOrdered
+                      className="size-4 text-zinc-500"
+                      strokeWidth={3}
+                    />
+                  </button>
+                </div>
+              </div>
+              <Textarea
+                id="bio"
+                defaultValue='I"m a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development.'
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-[minmax(7.5rem,17.5rem)_minmax(25rem,1fr)_minmax(0,15rem)] gap-3 pb-5">

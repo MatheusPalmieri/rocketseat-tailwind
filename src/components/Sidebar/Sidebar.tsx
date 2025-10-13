@@ -1,5 +1,5 @@
 import { LifeBuoy, Search, Settings } from "lucide-react";
-import { InputControl, InputPrefix, InputRoot } from "../Input";
+import { InputControl, InputPrefix, InputRoot } from "../form/Input";
 import { Logo } from "./Logo";
 import { MainNavigation } from "./MainNavigation";
 import { NavItem } from "./NavItem";
