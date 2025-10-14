@@ -3,6 +3,7 @@ import { InputControl, InputPrefix, InputRoot } from "@/components/form/Input";
 import { Select, SelectItem } from "@/components/form/Select";
 import { Textarea } from "@/components/form/Textarea";
 import { SettingsTabs } from "@/components/SettingsTabs/SettingsTabs";
+import { Button } from "@/components/ui/Button";
 import { Bold, Italic, Link, List, ListOrdered, Mail } from "lucide-react";
 
 export default function Home() {
@@ -22,19 +23,10 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              className="text-small rounded-lg border border-zinc-300 px-4 py-2 font-semibold text-zinc-700 shadow-sm transition-colors duration-300 hover:bg-zinc-50"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              form="settings"
-              className="text-small rounded-lg bg-violet-600 px-4 py-2 font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-violet-700"
-            >
+            <Button variant="secondary">Cancel</Button>
+            <Button type="submit" form="settings">
               Save
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -155,40 +147,25 @@ export default function Home() {
                   <SelectItem value="md">Markdown</SelectItem>
                 </Select>
 
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
-                  >
+                <div className="ml-auto flex items-center gap-1">
+                  <Button variant="ghost" size="icon">
                     <Bold className="size-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
-                  >
+                  </Button>
+                  <Button variant="ghost" size="icon">
                     <Italic className="size-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
-                  >
+                  </Button>
+                  <Button variant="ghost" size="icon">
                     <Link className="size-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
-                  >
+                  </Button>
+                  <Button variant="ghost" size="icon">
                     <List className="size-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-                  <button
-                    type="button"
-                    className="rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
-                  >
+                  </Button>
+                  <Button variant="ghost" size="icon">
                     <ListOrdered
                       className="size-4 text-zinc-500"
                       strokeWidth={3}
                     />
-                  </button>
+                  </Button>
                 </div>
               </div>
               <Textarea
@@ -217,18 +194,8 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-end gap-2">
-            <button
-              type="button"
-              className="text-small rounded-lg border border-zinc-300 px-4 py-2 font-semibold text-zinc-700 shadow-sm transition-colors duration-300 hover:bg-zinc-50"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="text-small rounded-lg bg-violet-600 px-4 py-2 font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-violet-700"
-            >
-              Save
-            </button>
+            <Button variant="secondary">Cancel</Button>
+            <Button type="submit">Save</Button>
           </div>
         </form>
       </div>
