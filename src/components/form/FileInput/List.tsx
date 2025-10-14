@@ -1,14 +1,16 @@
 "use client";
 
 import { formatBytes } from "@/utils/formatBytes";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Trash2, UploadCloud } from "lucide-react";
 import { useFileInput } from "./Root";
 
 export const List = () => {
-  const { files } = useFileInput();
+  const { files, onRemoveFile } = useFileInput();
+  const [parent] = useAutoAnimate();
 
   return (
-    <div className="mt-4 space-y-3">
+    <div ref={parent} className="mt-4 space-y-3">
       {files.map((file) => (
         <div
           key={file.name}
@@ -37,6 +39,7 @@ export const List = () => {
           <button
             type="button"
             className="ml-auto rounded-md p-2 transition-colors duration-200 hover:bg-zinc-50"
+            onClick={() => onRemoveFile(file.name)}
           >
             <Trash2 className="size-5 text-zinc-500" />
           </button>

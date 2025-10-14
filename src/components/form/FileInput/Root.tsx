@@ -12,6 +12,7 @@ interface FileInputContextProps {
   id: string;
   files: File[];
   onFilesSelected: (files: File[], multiple: boolean) => void;
+  onRemoveFile: (fileName: string) => void;
 }
 
 const FileInputContext = createContext({} as FileInputContextProps);
@@ -31,8 +32,15 @@ export const Root = (props: RootProps) => {
     setFiles(files);
   };
 
+  const onRemoveFile = (fileName: string) => {
+    const newFiles = files.filter((file) => file.name !== fileName);
+    setFiles(newFiles);
+  };
+
   return (
-    <FileInputContext.Provider value={{ id, files, onFilesSelected }}>
+    <FileInputContext.Provider
+      value={{ id, files, onFilesSelected, onRemoveFile }}
+    >
       <div {...props} />
     </FileInputContext.Provider>
   );
