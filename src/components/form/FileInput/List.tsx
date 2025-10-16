@@ -1,51 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { formatBytes } from "@/utils/formatBytes";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { Trash2, UploadCloud } from "lucide-react";
+import { Item } from "./Item";
 import { useFileInput } from "./Root";
 
 export const List = () => {
-  const { files, onRemoveFile } = useFileInput();
+  const { files } = useFileInput();
   const [parent] = useAutoAnimate();
 
   return (
     <div ref={parent} className="mt-4 space-y-3">
-      {files.map((file) => (
-        <div
-          key={file.name}
-          className="group flex items-start gap-4 rounded-lg border border-zinc-200 p-4"
-        >
-          <div className="rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600">
-            <UploadCloud className="size-4" />
-          </div>
-
-          <div className="flex flex-1 flex-col items-start gap-1">
-            <div className="space-y-0">
-              <p className="text-sm font-medium text-zinc-700">{file.name}</p>
-              <span className="text-sm text-zinc-500">
-                {formatBytes(file.size)}
-              </span>
-            </div>
-
-            <div className="flex w-full items-center gap-3">
-              <div className="h-2 flex-1 rounded-full bg-zinc-100">
-                <div className="h-2 w-4/5 rounded-full bg-violet-600" />
-              </div>
-              <span className="text-sm font-medium text-zinc-700">80%</span>
-            </div>
-          </div>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            className="ml-auto"
-            onClick={() => onRemoveFile(file.name)}
-          >
-            <Trash2 className="size-5 text-zinc-500" />
-          </Button>
-        </div>
+      {files.map(({ name, size }) => (
+        <Item key={name} name={name} size={size} state="complete" />
       ))}
     </div>
   );

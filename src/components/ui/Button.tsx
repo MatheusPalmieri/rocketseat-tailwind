@@ -14,6 +14,7 @@ const buttonVariants = tv({
     variant: {
       primary: "bg-violet-600 text-white",
       secondary: "border border-zinc-300 text-zinc-700",
+      error: "bg-red-600 text-white",
       ghost: "rounded-md px-2 shadow-none hover:bg-zinc-50 ",
     },
     size: {
